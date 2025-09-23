@@ -1,0 +1,244 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/ui_random_generation.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/stardusters_wallpaper.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Lato-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/themes/textedit.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=1]
+
+[node name="user_interface" type="Control"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MainBackground" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StardustersWallpaper" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ContainerBackground" type="ColorRect" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1900.0
+margin_bottom = 720.0
+color = Color( 0.607843, 0.607843, 0.607843, 0.392157 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = -40.0
+margin_bottom = -380.0
+rect_min_size = Vector2( 1840, 660 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1840.0
+margin_bottom = 660.0
+
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/VBoxContainer"]
+margin_right = 1840.0
+margin_bottom = 660.0
+rect_min_size = Vector2( 1840, 660 )
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
+drag_and_drop_selection_enabled = false
+wrap_enabled = true
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 20.0
+margin_top = 740.0
+margin_right = 1900.0
+margin_bottom = 1060.0
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TabContainer" type="TabContainer" parent="Panel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1860.0
+margin_bottom = 300.0
+tab_align = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Roll Dice" type="Tabs" parent="Panel/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="1d10" type="Button" parent="Panel/TabContainer/Roll Dice"]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 228.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 65 )
+text = "Roll 1d10"
+
+[node name="1d100" type="Button" parent="Panel/TabContainer/Roll Dice"]
+margin_left = 260.0
+margin_top = 24.0
+margin_right = 460.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 65 )
+text = "Roll 1d100"
+
+[node name="Between Adventures" type="Tabs" parent="Panel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="safe_trading" type="Button" parent="Panel/TabContainer/Between Adventures"]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 228.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 65 )
+text = "Safe Trading"
+
+[node name="safe_trading_value" type="Button" parent="Panel/TabContainer/Between Adventures"]
+margin_left = 28.0
+margin_top = 120.0
+margin_right = 228.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 200, 65 )
+text = "Safe Trading Value"
+
+[node name="asteroid_mining" type="Button" parent="Panel/TabContainer/Between Adventures"]
+margin_left = 260.0
+margin_top = 24.0
+margin_right = 460.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 65 )
+text = "Asteroid Mining"
+
+[node name="asteroid_mining_value" type="Button" parent="Panel/TabContainer/Between Adventures"]
+margin_left = 260.0
+margin_top = 120.0
+margin_right = 460.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 200, 65 )
+text = "Asteroid Mining Value"
+
+[node name="exploration" type="Button" parent="Panel/TabContainer/Between Adventures"]
+margin_left = 492.0
+margin_top = 24.0
+margin_right = 692.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 65 )
+text = "Exploration"
+
+[node name="bounty_hunting" type="Button" parent="Panel/TabContainer/Between Adventures"]
+margin_left = 724.0
+margin_top = 24.0
+margin_right = 924.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 65 )
+text = "Bounty Hunting"
+
+[node name="bounty_hunting_risk_number" type="Button" parent="Panel/TabContainer/Between Adventures"]
+margin_left = 724.0
+margin_top = 120.0
+margin_right = 924.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 200, 65 )
+text = "Bounty Hunting Risk Number"
+
+[node name="Combat" type="Tabs" parent="Panel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Employee Generator" type="Tabs" parent="Panel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="employee_name" type="Button" parent="Panel/TabContainer/Employee Generator"]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 228.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 65 )
+text = "Employee Name"
+
+[node name="employee_skills" type="Button" parent="Panel/TabContainer/Employee Generator"]
+margin_left = 260.0
+margin_top = 24.0
+margin_right = 460.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 200, 65 )
+text = "Employee Skills"
+
+[node name="Mission Generator" type="Tabs" parent="Panel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="System Generator" type="Tabs" parent="Panel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[connection signal="pressed" from="Panel/TabContainer/Roll Dice/1d10" to="." method="_on_1d10_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Roll Dice/1d100" to="." method="_on_1d100_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Between Adventures/safe_trading" to="." method="_on_safe_trading_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Between Adventures/safe_trading_value" to="." method="_on_safe_trading_value_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Between Adventures/asteroid_mining" to="." method="_on_asteroid_mining_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Between Adventures/asteroid_mining_value" to="." method="_on_asteroid_mining_value_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Between Adventures/exploration" to="." method="_on_exploration_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Between Adventures/bounty_hunting" to="." method="_on_bounty_hunting_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Between Adventures/bounty_hunting_risk_number" to="." method="_on_bounty_hunting_risk_number_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Employee Generator/employee_name" to="." method="_on_employee_name_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Employee Generator/employee_skills" to="." method="_on_employee_skills_pressed"]

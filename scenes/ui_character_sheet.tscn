@@ -1,0 +1,3810 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/ui_character_sheet.gd" type="Script" id=1]
+[ext_resource path="res://assets/themes/charactersheet.tres" type="Theme" id=2]
+[ext_resource path="res://assets/sprites/ui_charactersheet1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/ui_charactersheet2.png" type="Texture" id=4]
+[ext_resource path="res://scripts/utility/ui_sheetcamera.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="BitmapFont" id=1]
+
+[sub_resource type="BitmapFont" id=2]
+
+[sub_resource type="BitmapFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="ui_character_sheet" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="auto_save" type="Timer" parent="."]
+wait_time = 45.0
+autostart = true
+
+[node name="auto_bonuses" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 576, 324 )
+current = true
+zoom = Vector2( 0.6, 0.6 )
+script = ExtResource( 5 )
+
+[node name="sheet" type="Sprite" parent="."]
+
+[node name="UiCharactersheet1" type="Sprite" parent="sheet"]
+position = Vector2( 372, 526 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="UiCharactersheet2" type="Sprite" parent="sheet"]
+position = Vector2( 1116, 526 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="charactersheet_panel" type="Panel" parent="."]
+margin_right = 1488.0
+margin_bottom = 1052.0
+theme = ExtResource( 2 )
+
+[node name="character_section" type="Node" parent="charactersheet_panel"]
+
+[node name="NameLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 373.0
+margin_top = 66.0
+margin_right = 1413.0
+margin_bottom = 206.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 27
+caret_blink = true
+
+[node name="RankLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 614.0
+margin_top = 67.0
+margin_right = 1334.0
+margin_bottom = 207.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "Mostly Harmless"
+max_length = 18
+caret_blink = true
+
+[node name="GenderLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 243.0
+margin_top = 114.0
+margin_right = 633.0
+margin_bottom = 254.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "-"
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="AgeLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 325.0
+margin_top = 114.0
+margin_right = 765.0
+margin_bottom = 254.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "-"
+align = 1
+max_length = 9
+caret_blink = true
+
+[node name="HeightLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 419.0
+margin_top = 114.0
+margin_right = 769.0
+margin_bottom = 254.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "-"
+align = 1
+max_length = 7
+caret_blink = true
+
+[node name="WeightLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 506.0
+margin_top = 114.0
+margin_right = 846.0
+margin_bottom = 254.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "-"
+align = 1
+max_length = 7
+caret_blink = true
+
+[node name="RankPointsLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 602.0
+margin_top = 105.0
+margin_right = 842.0
+margin_bottom = 245.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="InitiativeTacticsLabel" type="Label" parent="charactersheet_panel/character_section"]
+margin_left = 132.0
+margin_top = 162.0
+margin_right = 284.0
+margin_bottom = 265.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="DefenceDodgeLabel" type="Label" parent="charactersheet_panel/character_section"]
+margin_left = 80.0
+margin_top = 186.0
+margin_right = 232.0
+margin_bottom = 289.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="DefenceParryLabel" type="Label" parent="charactersheet_panel/character_section"]
+margin_left = 184.0
+margin_top = 186.0
+margin_right = 336.0
+margin_bottom = 289.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="ChangeMaxKarmaLabel" type="Label" parent="charactersheet_panel/character_section"]
+margin_left = 395.0
+margin_top = 163.0
+margin_right = 547.0
+margin_bottom = 266.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "Max:"
+align = 1
+valign = 1
+
+[node name="ChangeMaxKarmaLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 413.0
+margin_top = 162.0
+margin_right = 653.0
+margin_bottom = 302.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "10"
+max_length = 3
+caret_blink = true
+
+[node name="CurrentKarmaLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 269.0
+margin_top = 172.0
+margin_right = 509.0
+margin_bottom = 312.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 2
+max_length = 4
+caret_blink = true
+
+[node name="MaxKarmaLabel" type="Label" parent="charactersheet_panel/character_section"]
+margin_left = 375.0
+margin_top = 179.0
+margin_right = 527.0
+margin_bottom = 282.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "/ 10"
+align = 1
+valign = 1
+
+[node name="ChangeMaxEnduranceLabel" type="Label" parent="charactersheet_panel/character_section"]
+margin_left = 629.8
+margin_top = 163.2
+margin_right = 795.8
+margin_bottom = 266.2
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "Max:"
+align = 1
+valign = 1
+
+[node name="ChangeMaxEnduranceLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 647.8
+margin_top = 162.2
+margin_right = 887.8
+margin_bottom = 302.2
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "10"
+max_length = 3
+caret_blink = true
+
+[node name="CurrentEnduranceLineEdit" type="LineEdit" parent="charactersheet_panel/character_section"]
+margin_left = 501.8
+margin_top = 172.2
+margin_right = 741.8
+margin_bottom = 312.2
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 2
+max_length = 4
+caret_blink = true
+
+[node name="MaxEnduranceLabel" type="Label" parent="charactersheet_panel/character_section"]
+margin_left = 607.8
+margin_top = 179.2
+margin_right = 759.8
+margin_bottom = 282.2
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "/ 10"
+align = 1
+valign = 1
+
+[node name="backgrounds" type="Node" parent="charactersheet_panel"]
+
+[node name="BackgroundsTextEdit01" type="TextEdit" parent="charactersheet_panel/backgrounds"]
+margin_left = 56.0
+margin_top = 261.0
+margin_right = 1036.0
+margin_bottom = 981.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+wrap_enabled = true
+caret_blink = true
+
+[node name="BackgroundsTextEdit02" type="TextEdit" parent="charactersheet_panel/backgrounds"]
+margin_left = 184.0
+margin_top = 261.0
+margin_right = 1164.0
+margin_bottom = 981.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+wrap_enabled = true
+caret_blink = true
+
+[node name="BackgroundsTextEdit03" type="TextEdit" parent="charactersheet_panel/backgrounds"]
+margin_left = 313.0
+margin_top = 261.0
+margin_right = 1293.0
+margin_bottom = 981.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+wrap_enabled = true
+caret_blink = true
+
+[node name="BackgroundsTextEdit04" type="TextEdit" parent="charactersheet_panel/backgrounds"]
+margin_left = 442.0
+margin_top = 261.0
+margin_right = 1422.0
+margin_bottom = 981.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+wrap_enabled = true
+caret_blink = true
+
+[node name="BackgroundsTextEdit05" type="TextEdit" parent="charactersheet_panel/backgrounds"]
+margin_left = 570.0
+margin_top = 261.0
+margin_right = 1550.0
+margin_bottom = 981.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+wrap_enabled = true
+caret_blink = true
+
+[node name="skills" type="Node" parent="charactersheet_panel"]
+
+[node name="skillbuttons" type="Node" parent="charactersheet_panel/skills"]
+
+[node name="SkillButton01" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 412.0
+margin_right = 432.0
+margin_bottom = 482.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton02" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 430.0
+margin_right = 432.0
+margin_bottom = 500.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton03" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 448.0
+margin_right = 432.0
+margin_bottom = 518.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton04" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 467.0
+margin_right = 432.0
+margin_bottom = 537.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton05" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 485.0
+margin_right = 432.0
+margin_bottom = 555.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton06" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 503.0
+margin_right = 432.0
+margin_bottom = 573.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton07" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 522.0
+margin_right = 432.0
+margin_bottom = 592.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton08" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 540.0
+margin_right = 432.0
+margin_bottom = 610.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton09" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 412.0
+margin_right = 656.0
+margin_bottom = 482.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton10" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 430.0
+margin_right = 656.0
+margin_bottom = 500.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton11" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 448.0
+margin_right = 656.0
+margin_bottom = 518.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton12" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 467.0
+margin_right = 656.0
+margin_bottom = 537.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton13" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 485.0
+margin_right = 656.0
+margin_bottom = 555.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton14" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 503.0
+margin_right = 656.0
+margin_bottom = 573.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton15" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 522.0
+margin_right = 656.0
+margin_bottom = 592.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton16" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 540.0
+margin_right = 656.0
+margin_bottom = 610.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton17" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 412.0
+margin_right = 880.0
+margin_bottom = 482.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton18" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 430.0
+margin_right = 880.0
+margin_bottom = 500.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton19" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 448.0
+margin_right = 880.0
+margin_bottom = 518.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton20" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 467.0
+margin_right = 880.0
+margin_bottom = 537.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton21" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 485.0
+margin_right = 880.0
+margin_bottom = 555.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton22" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 503.0
+margin_right = 880.0
+margin_bottom = 573.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton23" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 522.0
+margin_right = 880.0
+margin_bottom = 592.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton24" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 510.0
+margin_top = 540.0
+margin_right = 880.0
+margin_bottom = 610.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton25" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 613.0
+margin_right = 432.0
+margin_bottom = 683.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton26" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 631.0
+margin_right = 432.0
+margin_bottom = 701.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton27" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 650.0
+margin_right = 432.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton28" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 668.0
+margin_right = 432.0
+margin_bottom = 738.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton29" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 686.0
+margin_right = 432.0
+margin_bottom = 756.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton30" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 705.0
+margin_right = 432.0
+margin_bottom = 775.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton31" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 62.0
+margin_top = 723.0
+margin_right = 432.0
+margin_bottom = 793.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton32" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 613.0
+margin_right = 656.0
+margin_bottom = 683.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton33" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 631.0
+margin_right = 656.0
+margin_bottom = 701.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton34" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 650.0
+margin_right = 656.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton35" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 668.0
+margin_right = 656.0
+margin_bottom = 738.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton36" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 686.0
+margin_right = 656.0
+margin_bottom = 756.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="SkillButton37" type="Button" parent="charactersheet_panel/skills/skillbuttons"]
+margin_left = 286.0
+margin_top = 705.0
+margin_right = 656.0
+margin_bottom = 775.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+
+[node name="skillscores" type="Node" parent="charactersheet_panel/skills"]
+
+[node name="SkillLineEdit01" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 411.0
+margin_right = 355.0
+margin_bottom = 514.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit02" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 429.0
+margin_right = 355.0
+margin_bottom = 532.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit03" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 447.0
+margin_right = 355.0
+margin_bottom = 550.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit04" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 466.0
+margin_right = 355.0
+margin_bottom = 569.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit05" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 484.0
+margin_right = 355.0
+margin_bottom = 587.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit06" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 502.0
+margin_right = 355.0
+margin_bottom = 605.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit07" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 521.0
+margin_right = 355.0
+margin_bottom = 624.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit08" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 139.0
+margin_top = 539.0
+margin_right = 355.0
+margin_bottom = 642.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit09" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 411.0
+margin_right = 579.0
+margin_bottom = 514.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit10" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 429.0
+margin_right = 579.0
+margin_bottom = 532.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit11" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 447.0
+margin_right = 579.0
+margin_bottom = 550.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit12" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 466.0
+margin_right = 579.0
+margin_bottom = 569.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit13" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 484.0
+margin_right = 579.0
+margin_bottom = 587.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit14" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 502.0
+margin_right = 579.0
+margin_bottom = 605.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit15" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 521.0
+margin_right = 579.0
+margin_bottom = 624.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit16" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 363.0
+margin_top = 539.0
+margin_right = 579.0
+margin_bottom = 642.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit17" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 411.0
+margin_right = 803.0
+margin_bottom = 514.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit18" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 429.0
+margin_right = 803.0
+margin_bottom = 532.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit19" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 447.0
+margin_right = 803.0
+margin_bottom = 550.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit20" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 466.0
+margin_right = 803.0
+margin_bottom = 569.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit21" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 484.0
+margin_right = 803.0
+margin_bottom = 587.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit22" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 502.0
+margin_right = 803.0
+margin_bottom = 605.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit23" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 521.0
+margin_right = 803.0
+margin_bottom = 624.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit24" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 587.0
+margin_top = 539.0
+margin_right = 803.0
+margin_bottom = 642.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit25" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 140.0
+margin_top = 611.0
+margin_right = 356.0
+margin_bottom = 714.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit26" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 140.0
+margin_top = 630.0
+margin_right = 356.0
+margin_bottom = 733.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit27" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 140.0
+margin_top = 648.0
+margin_right = 356.0
+margin_bottom = 751.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit28" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 140.0
+margin_top = 666.0
+margin_right = 356.0
+margin_bottom = 769.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit29" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 140.0
+margin_top = 684.0
+margin_right = 356.0
+margin_bottom = 787.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit30" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 140.0
+margin_top = 703.0
+margin_right = 356.0
+margin_bottom = 806.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit31" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 140.0
+margin_top = 721.0
+margin_right = 356.0
+margin_bottom = 824.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit32" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 364.0
+margin_top = 611.0
+margin_right = 580.0
+margin_bottom = 714.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit33" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 364.0
+margin_top = 629.0
+margin_right = 580.0
+margin_bottom = 732.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit34" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 364.0
+margin_top = 648.0
+margin_right = 580.0
+margin_bottom = 751.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit35" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 364.0
+margin_top = 666.0
+margin_right = 580.0
+margin_bottom = 769.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit36" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 364.0
+margin_top = 684.0
+margin_right = 580.0
+margin_bottom = 787.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="SkillLineEdit37" type="LineEdit" parent="charactersheet_panel/skills/skillscores"]
+margin_left = 364.0
+margin_top = 703.0
+margin_right = 580.0
+margin_bottom = 806.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 3
+caret_blink = true
+
+[node name="bonuses" type="Node" parent="charactersheet_panel/skills"]
+
+[node name="BonusLabel01" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 411.0
+margin_right = 283.0
+margin_bottom = 514.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel02" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 429.0
+margin_right = 283.0
+margin_bottom = 532.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel03" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 447.0
+margin_right = 283.0
+margin_bottom = 550.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel04" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 466.0
+margin_right = 283.0
+margin_bottom = 569.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel05" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 484.0
+margin_right = 283.0
+margin_bottom = 587.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel06" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 502.0
+margin_right = 283.0
+margin_bottom = 605.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel07" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 521.0
+margin_right = 283.0
+margin_bottom = 624.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel08" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 187.0
+margin_top = 539.0
+margin_right = 283.0
+margin_bottom = 642.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel09" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 411.0
+margin_right = 507.0
+margin_bottom = 514.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel10" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 429.0
+margin_right = 507.0
+margin_bottom = 532.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel11" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 447.0
+margin_right = 507.0
+margin_bottom = 550.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel12" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 466.0
+margin_right = 507.0
+margin_bottom = 569.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel13" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 484.0
+margin_right = 507.0
+margin_bottom = 587.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel14" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 502.0
+margin_right = 507.0
+margin_bottom = 605.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel15" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 521.0
+margin_right = 507.0
+margin_bottom = 624.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel16" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 539.0
+margin_right = 507.0
+margin_bottom = 642.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel17" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 411.0
+margin_right = 731.0
+margin_bottom = 514.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel18" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 429.0
+margin_right = 731.0
+margin_bottom = 532.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel19" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 447.0
+margin_right = 731.0
+margin_bottom = 550.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel20" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 466.0
+margin_right = 731.0
+margin_bottom = 569.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel21" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 484.0
+margin_right = 731.0
+margin_bottom = 587.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel22" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 502.0
+margin_right = 731.0
+margin_bottom = 605.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel23" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 521.0
+margin_right = 731.0
+margin_bottom = 624.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel24" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 635.0
+margin_top = 539.0
+margin_right = 731.0
+margin_bottom = 642.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel25" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 188.0
+margin_top = 612.0
+margin_right = 284.0
+margin_bottom = 715.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel26" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 188.0
+margin_top = 630.0
+margin_right = 284.0
+margin_bottom = 733.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel27" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 188.0
+margin_top = 649.0
+margin_right = 284.0
+margin_bottom = 752.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel28" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 188.0
+margin_top = 667.0
+margin_right = 284.0
+margin_bottom = 770.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel29" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 188.0
+margin_top = 685.0
+margin_right = 284.0
+margin_bottom = 788.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel30" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 188.0
+margin_top = 704.0
+margin_right = 284.0
+margin_bottom = 807.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel31" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 188.0
+margin_top = 722.0
+margin_right = 284.0
+margin_bottom = 825.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel32" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 611.0
+margin_right = 507.0
+margin_bottom = 714.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel33" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 629.0
+margin_right = 507.0
+margin_bottom = 732.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel34" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 648.0
+margin_right = 507.0
+margin_bottom = 751.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel35" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 666.0
+margin_right = 507.0
+margin_bottom = 769.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel36" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 684.0
+margin_right = 507.0
+margin_bottom = 787.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="BonusLabel37" type="Label" parent="charactersheet_panel/skills/bonuses"]
+margin_left = 411.0
+margin_top = 703.0
+margin_right = 507.0
+margin_bottom = 806.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="checkboxes" type="Node" parent="charactersheet_panel/skills"]
+
+[node name="UsedCheckBox01" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 417.0
+margin_right = 252.0
+margin_bottom = 441.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox02" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 435.0
+margin_right = 252.0
+margin_bottom = 459.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox03" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 453.0
+margin_right = 252.0
+margin_bottom = 477.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox04" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 472.0
+margin_right = 252.0
+margin_bottom = 496.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox05" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 490.0
+margin_right = 252.0
+margin_bottom = 514.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox06" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 508.0
+margin_right = 252.0
+margin_bottom = 532.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox07" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 527.0
+margin_right = 252.0
+margin_bottom = 551.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox08" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 545.0
+margin_right = 252.0
+margin_bottom = 569.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox09" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 417.0
+margin_right = 476.0
+margin_bottom = 441.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox10" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 435.0
+margin_right = 476.0
+margin_bottom = 459.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox11" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 453.0
+margin_right = 476.0
+margin_bottom = 477.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox12" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 472.0
+margin_right = 476.0
+margin_bottom = 496.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox13" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 490.0
+margin_right = 476.0
+margin_bottom = 514.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox14" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 508.0
+margin_right = 476.0
+margin_bottom = 532.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox15" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 527.0
+margin_right = 476.0
+margin_bottom = 551.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox16" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 545.0
+margin_right = 476.0
+margin_bottom = 569.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox17" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 417.0
+margin_right = 700.0
+margin_bottom = 441.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox18" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 435.0
+margin_right = 700.0
+margin_bottom = 459.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox19" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 453.0
+margin_right = 700.0
+margin_bottom = 477.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox20" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 472.0
+margin_right = 700.0
+margin_bottom = 496.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox21" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 490.0
+margin_right = 700.0
+margin_bottom = 514.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox22" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 508.0
+margin_right = 700.0
+margin_bottom = 532.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox23" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 527.0
+margin_right = 700.0
+margin_bottom = 551.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox24" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 676.0
+margin_top = 545.0
+margin_right = 700.0
+margin_bottom = 569.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox25" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 618.0
+margin_right = 252.0
+margin_bottom = 642.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox26" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 636.0
+margin_right = 252.0
+margin_bottom = 660.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox27" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 655.0
+margin_right = 252.0
+margin_bottom = 679.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox28" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 673.0
+margin_right = 252.0
+margin_bottom = 697.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox29" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 691.0
+margin_right = 252.0
+margin_bottom = 715.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox30" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 710.0
+margin_right = 252.0
+margin_bottom = 734.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox31" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 228.0
+margin_top = 728.0
+margin_right = 252.0
+margin_bottom = 752.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox32" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 617.0
+margin_right = 476.0
+margin_bottom = 641.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox33" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 635.0
+margin_right = 476.0
+margin_bottom = 659.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox34" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 654.0
+margin_right = 476.0
+margin_bottom = 678.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox35" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 672.0
+margin_right = 476.0
+margin_bottom = 696.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox36" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 690.0
+margin_right = 476.0
+margin_bottom = 714.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="UsedCheckBox37" type="CheckBox" parent="charactersheet_panel/skills/checkboxes" groups=["checkbox"]]
+margin_left = 452.0
+margin_top = 709.0
+margin_right = 476.0
+margin_bottom = 733.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 4 )
+
+[node name="enhancements" type="Node" parent="charactersheet_panel"]
+
+[node name="EnhancementsTextEdit" type="TextEdit" parent="charactersheet_panel/enhancements"]
+margin_left = 504.0
+margin_top = 612.0
+margin_right = 2024.0
+margin_bottom = 1632.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+wrap_enabled = true
+caret_blink = true
+
+[node name="ranged_weapons" type="Node" parent="charactersheet_panel"]
+
+[node name="RngWepButton01" type="Button" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 65.0
+margin_top = 796.0
+margin_right = 265.0
+margin_bottom = 866.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="RngWepNameLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 104.0
+margin_top = 796.0
+margin_right = 1024.0
+margin_bottom = 899.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 24
+caret_blink = true
+
+[node name="RngWepToHitLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 220.0
+margin_top = 795.0
+margin_right = 436.0
+margin_bottom = 898.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="RngWepShortRngLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 258.0
+margin_top = 795.0
+margin_right = 778.0
+margin_bottom = 935.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepMedRngLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 314.0
+margin_top = 795.0
+margin_right = 834.0
+margin_bottom = 935.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepLngRngLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 370.0
+margin_top = 795.0
+margin_right = 890.0
+margin_bottom = 935.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepDmgLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 427.0
+margin_top = 795.0
+margin_right = 1007.0
+margin_bottom = 935.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepAmmoLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 490.0
+margin_top = 795.0
+margin_right = 706.0
+margin_bottom = 898.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 2
+caret_blink = true
+
+[node name="RngWepNotesLineEdit01" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 528.0
+margin_top = 797.0
+margin_right = 2148.0
+margin_bottom = 900.0
+rect_scale = Vector2( 0.100746, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="RngWepButton02" type="Button" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 65.0
+margin_top = 814.0
+margin_right = 265.0
+margin_bottom = 884.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="RngWepNameLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 104.0
+margin_top = 814.0
+margin_right = 1024.0
+margin_bottom = 917.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 24
+caret_blink = true
+
+[node name="RngWepToHitLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 220.0
+margin_top = 813.0
+margin_right = 436.0
+margin_bottom = 916.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="RngWepShortRngLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 258.0
+margin_top = 813.0
+margin_right = 778.0
+margin_bottom = 953.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepMedRngLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 314.0
+margin_top = 813.0
+margin_right = 834.0
+margin_bottom = 953.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepLngRngLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 370.0
+margin_top = 813.0
+margin_right = 890.0
+margin_bottom = 953.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepDmgLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 427.0
+margin_top = 813.0
+margin_right = 1007.0
+margin_bottom = 953.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepAmmoLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 490.0
+margin_top = 813.0
+margin_right = 706.0
+margin_bottom = 916.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 2
+caret_blink = true
+
+[node name="RngWepNotesLineEdit02" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 528.0
+margin_top = 815.0
+margin_right = 2148.0
+margin_bottom = 918.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="RngWepButton03" type="Button" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 65.0
+margin_top = 833.0
+margin_right = 265.0
+margin_bottom = 903.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="RngWepNameLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 104.0
+margin_top = 833.0
+margin_right = 1024.0
+margin_bottom = 936.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 24
+caret_blink = true
+
+[node name="RngWepToHitLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 220.0
+margin_top = 832.0
+margin_right = 436.0
+margin_bottom = 935.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="RngWepShortRngLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 258.0
+margin_top = 832.0
+margin_right = 778.0
+margin_bottom = 972.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepMedRngLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 314.0
+margin_top = 832.0
+margin_right = 834.0
+margin_bottom = 972.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepLngRngLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 370.0
+margin_top = 832.0
+margin_right = 890.0
+margin_bottom = 972.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepDmgLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 427.0
+margin_top = 832.0
+margin_right = 1007.0
+margin_bottom = 972.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepAmmoLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 490.0
+margin_top = 832.0
+margin_right = 706.0
+margin_bottom = 935.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 2
+caret_blink = true
+
+[node name="RngWepNotesLineEdit03" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 528.0
+margin_top = 834.0
+margin_right = 2148.0
+margin_bottom = 937.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="RngWepButton04" type="Button" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 65.0
+margin_top = 851.0
+margin_right = 265.0
+margin_bottom = 921.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="RngWepNameLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 104.0
+margin_top = 851.0
+margin_right = 1024.0
+margin_bottom = 954.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 24
+caret_blink = true
+
+[node name="RngWepToHitLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 220.0
+margin_top = 850.0
+margin_right = 436.0
+margin_bottom = 953.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="RngWepShortRngLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 258.0
+margin_top = 850.0
+margin_right = 778.0
+margin_bottom = 990.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepMedRngLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 314.0
+margin_top = 850.0
+margin_right = 834.0
+margin_bottom = 990.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepLngRngLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 370.0
+margin_top = 850.0
+margin_right = 890.0
+margin_bottom = 990.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepDmgLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 427.0
+margin_top = 850.0
+margin_right = 1007.0
+margin_bottom = 990.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepAmmoLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 490.0
+margin_top = 850.0
+margin_right = 706.0
+margin_bottom = 953.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 2
+caret_blink = true
+
+[node name="RngWepNotesLineEdit04" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 528.0
+margin_top = 852.0
+margin_right = 2148.0
+margin_bottom = 955.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="RngWepButton05" type="Button" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 65.0
+margin_top = 869.0
+margin_right = 265.0
+margin_bottom = 939.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="RngWepNameLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 104.0
+margin_top = 869.0
+margin_right = 1024.0
+margin_bottom = 972.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 24
+caret_blink = true
+
+[node name="RngWepToHitLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 220.0
+margin_top = 868.0
+margin_right = 436.0
+margin_bottom = 971.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="RngWepShortRngLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 258.0
+margin_top = 868.0
+margin_right = 778.0
+margin_bottom = 1008.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepMedRngLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 314.0
+margin_top = 868.0
+margin_right = 834.0
+margin_bottom = 1008.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepLngRngLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 370.0
+margin_top = 868.0
+margin_right = 890.0
+margin_bottom = 1008.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepDmgLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 427.0
+margin_top = 868.0
+margin_right = 1007.0
+margin_bottom = 1008.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 10
+caret_blink = true
+
+[node name="RngWepAmmoLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 490.0
+margin_top = 868.0
+margin_right = 706.0
+margin_bottom = 971.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 2
+caret_blink = true
+
+[node name="RngWepNotesLineEdit05" type="LineEdit" parent="charactersheet_panel/ranged_weapons"]
+margin_left = 528.0
+margin_top = 870.0
+margin_right = 2148.0
+margin_bottom = 973.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="close_combat" type="Node" parent="charactersheet_panel"]
+
+[node name="MelWepButton01" type="Button" parent="charactersheet_panel/close_combat"]
+margin_left = 65.0
+margin_top = 936.0
+margin_right = 265.0
+margin_bottom = 1006.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="MelWepNameLineEdit01" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 104.0
+margin_top = 936.0
+margin_right = 1024.0
+margin_bottom = 1039.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+text = "Fighting"
+align = 2
+max_length = 18
+editable = false
+
+[node name="MelWepToHitLineEdit01" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 220.0
+margin_top = 935.0
+margin_right = 436.0
+margin_bottom = 1038.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="MelWepFinesseLineEdit01" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 258.0
+margin_top = 935.0
+margin_right = 474.0
+margin_bottom = 1038.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "5"
+align = 1
+max_length = 3
+editable = false
+
+[node name="MelWepDmgLineEdit01" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 296.0
+margin_top = 935.0
+margin_right = 666.0
+margin_bottom = 1038.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 3 )
+text = "D10 / "
+align = 1
+max_length = 6
+editable = false
+
+[node name="MelWepNotesLineEdit01" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 359.0
+margin_top = 937.0
+margin_right = 2219.0
+margin_bottom = 1040.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="MelWepButton02" type="Button" parent="charactersheet_panel/close_combat"]
+margin_left = 65.0
+margin_top = 954.0
+margin_right = 265.0
+margin_bottom = 1024.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="MelWepNameLineEdit02" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 104.0
+margin_top = 954.0
+margin_right = 1024.0
+margin_bottom = 1057.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 24
+caret_blink = true
+
+[node name="MelWepToHitLineEdit02" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 220.0
+margin_top = 953.0
+margin_right = 436.0
+margin_bottom = 1056.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="MelWepFinesseLineEdit02" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 258.0
+margin_top = 953.0
+margin_right = 474.0
+margin_bottom = 1056.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="MelWepDmgLineEdit02" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 296.0
+margin_top = 953.0
+margin_right = 666.0
+margin_bottom = 1056.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 6
+caret_blink = true
+
+[node name="MelWepNotesLineEdit02" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 359.0
+margin_top = 955.0
+margin_right = 2219.0
+margin_bottom = 1058.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="MelWepButton03" type="Button" parent="charactersheet_panel/close_combat"]
+margin_left = 65.0
+margin_top = 972.0
+margin_right = 265.0
+margin_bottom = 1042.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "ROLL"
+
+[node name="MelWepNameLineEdit03" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 104.0
+margin_top = 972.0
+margin_right = 1024.0
+margin_bottom = 1075.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 24
+caret_blink = true
+
+[node name="MelWepToHitLineEdit03" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 220.0
+margin_top = 971.0
+margin_right = 436.0
+margin_bottom = 1074.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="MelWepFinesseLineEdit03" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 258.0
+margin_top = 971.0
+margin_right = 474.0
+margin_bottom = 1074.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="MelWepDmgLineEdit03" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 296.0
+margin_top = 971.0
+margin_right = 666.0
+margin_bottom = 1074.0
+rect_scale = Vector2( 0.16, 0.16 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 6
+caret_blink = true
+
+[node name="MelWepNotesLineEdit03" type="LineEdit" parent="charactersheet_panel/close_combat"]
+margin_left = 359.0
+margin_top = 973.0
+margin_right = 2219.0
+margin_bottom = 1076.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="karma_capabilities" type="Node" parent="charactersheet_panel"]
+
+[node name="KarmaNameLineEdit01" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 103.0
+margin_right = 1637.0
+margin_bottom = 206.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit01" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 103.0
+margin_right = 1186.0
+margin_bottom = 206.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit01" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 103.0
+margin_right = 1368.0
+margin_bottom = 206.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit01" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 103.0
+margin_right = 4239.0
+margin_bottom = 206.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit02" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 131.0
+margin_right = 1637.0
+margin_bottom = 234.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit02" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 131.0
+margin_right = 1186.0
+margin_bottom = 234.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit02" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 131.0
+margin_right = 1368.0
+margin_bottom = 234.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit02" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 131.0
+margin_right = 4239.0
+margin_bottom = 234.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit03" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 158.0
+margin_right = 1637.0
+margin_bottom = 261.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit03" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 158.0
+margin_right = 1186.0
+margin_bottom = 261.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit03" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 158.0
+margin_right = 1368.0
+margin_bottom = 261.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit03" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 158.0
+margin_right = 4239.0
+margin_bottom = 261.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit04" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 184.0
+margin_right = 1637.0
+margin_bottom = 287.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit04" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 184.0
+margin_right = 1186.0
+margin_bottom = 287.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit04" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 184.0
+margin_right = 1368.0
+margin_bottom = 287.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit04" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 184.0
+margin_right = 4239.0
+margin_bottom = 287.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit05" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 211.0
+margin_right = 1637.0
+margin_bottom = 314.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit05" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 211.0
+margin_right = 1186.0
+margin_bottom = 314.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit05" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 211.0
+margin_right = 1368.0
+margin_bottom = 314.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit05" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 211.0
+margin_right = 4239.0
+margin_bottom = 314.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit06" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 239.0
+margin_right = 1637.0
+margin_bottom = 342.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit06" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 239.0
+margin_right = 1186.0
+margin_bottom = 342.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit06" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 239.0
+margin_right = 1368.0
+margin_bottom = 342.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit06" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 239.0
+margin_right = 4239.0
+margin_bottom = 342.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit07" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 265.0
+margin_right = 1637.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit07" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 265.0
+margin_right = 1186.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit07" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 265.0
+margin_right = 1368.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit07" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 265.0
+margin_right = 4239.0
+margin_bottom = 368.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit08" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 292.0
+margin_right = 1637.0
+margin_bottom = 395.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit08" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 292.0
+margin_right = 1186.0
+margin_bottom = 395.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit08" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 292.0
+margin_right = 1368.0
+margin_bottom = 395.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit08" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 292.0
+margin_right = 4239.0
+margin_bottom = 395.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit09" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 319.0
+margin_right = 1637.0
+margin_bottom = 422.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit09" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 319.0
+margin_right = 1186.0
+margin_bottom = 422.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit09" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 319.0
+margin_right = 1368.0
+margin_bottom = 422.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit09" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 319.0
+margin_right = 4239.0
+margin_bottom = 422.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="KarmaNameLineEdit10" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 817.0
+margin_top = 346.0
+margin_right = 1637.0
+margin_bottom = 449.0
+rect_scale = Vector2( 0.14, 0.14 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 2
+max_length = 21
+caret_blink = true
+
+[node name="KarmaCostLineEdit10" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 946.0
+margin_top = 346.0
+margin_right = 1186.0
+margin_bottom = 449.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 3
+caret_blink = true
+
+[node name="KarmaTypeLineEdit10" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 988.0
+margin_top = 346.0
+margin_right = 1368.0
+margin_bottom = 449.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+align = 1
+max_length = 8
+caret_blink = true
+
+[node name="KarmaDescriptionLineEdit10" type="LineEdit" parent="charactersheet_panel/karma_capabilities"]
+margin_left = 1039.0
+margin_top = 346.0
+margin_right = 4239.0
+margin_bottom = 449.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="carried_weapons" type="Node" parent="charactersheet_panel"]
+
+[node name="CarriedWepsLineEdit01" type="LineEdit" parent="charactersheet_panel/carried_weapons"]
+margin_left = 890.0
+margin_top = 408.0
+margin_right = 2490.0
+margin_bottom = 511.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 41
+caret_blink = true
+
+[node name="CarriedWepsLineEdit02" type="LineEdit" parent="charactersheet_panel/carried_weapons"]
+margin_left = 890.0
+margin_top = 427.0
+margin_right = 2490.0
+margin_bottom = 530.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 41
+caret_blink = true
+
+[node name="CarriedWepsLineEdit03" type="LineEdit" parent="charactersheet_panel/carried_weapons"]
+margin_left = 890.0
+margin_top = 445.0
+margin_right = 2490.0
+margin_bottom = 548.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 41
+caret_blink = true
+
+[node name="CarriedWepsLineEdit04" type="LineEdit" parent="charactersheet_panel/carried_weapons"]
+margin_left = 890.0
+margin_top = 463.0
+margin_right = 2490.0
+margin_bottom = 566.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 41
+caret_blink = true
+
+[node name="CarriedWepsLineEdit05" type="LineEdit" parent="charactersheet_panel/carried_weapons"]
+margin_left = 890.0
+margin_top = 481.0
+margin_right = 2490.0
+margin_bottom = 584.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 41
+caret_blink = true
+
+[node name="CarriedWepsLineEdit06" type="LineEdit" parent="charactersheet_panel/carried_weapons"]
+margin_left = 890.0
+margin_top = 499.0
+margin_right = 2490.0
+margin_bottom = 602.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 41
+caret_blink = true
+
+[node name="CarriedWepsLineEdit07" type="LineEdit" parent="charactersheet_panel/carried_weapons"]
+margin_left = 890.0
+margin_top = 518.0
+margin_right = 2490.0
+margin_bottom = 621.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 41
+caret_blink = true
+
+[node name="clothing" type="Node" parent="charactersheet_panel"]
+
+[node name="ClothingNameLineEdit01" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1140.0
+margin_top = 423.0
+margin_right = 1820.0
+margin_bottom = 526.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 17
+caret_blink = true
+
+[node name="ClothingNotesLineEdit01" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1227.0
+margin_top = 423.0
+margin_right = 2527.0
+margin_bottom = 526.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="ClothingWornCheckBox01" type="CheckBox" parent="charactersheet_panel/clothing"]
+margin_left = 1409.0
+margin_top = 428.0
+margin_right = 1433.0
+margin_bottom = 452.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 5 )
+
+[node name="ClothingNameLineEdit02" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1140.0
+margin_top = 442.0
+margin_right = 1820.0
+margin_bottom = 545.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 17
+caret_blink = true
+
+[node name="ClothingNotesLineEdit02" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1227.0
+margin_top = 442.0
+margin_right = 2527.0
+margin_bottom = 545.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="ClothingWornCheckBox02" type="CheckBox" parent="charactersheet_panel/clothing"]
+margin_left = 1409.0
+margin_top = 447.0
+margin_right = 1433.0
+margin_bottom = 471.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 5 )
+
+[node name="ClothingNameLineEdit03" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1140.0
+margin_top = 460.0
+margin_right = 1820.0
+margin_bottom = 563.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 17
+caret_blink = true
+
+[node name="ClothingNotesLineEdit03" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1227.0
+margin_top = 460.0
+margin_right = 2527.0
+margin_bottom = 563.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="ClothingWornCheckBox03" type="CheckBox" parent="charactersheet_panel/clothing"]
+margin_left = 1409.0
+margin_top = 465.0
+margin_right = 1433.0
+margin_bottom = 489.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 5 )
+
+[node name="ClothingNameLineEdit04" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1140.0
+margin_top = 478.0
+margin_right = 1820.0
+margin_bottom = 581.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 17
+caret_blink = true
+
+[node name="ClothingNotesLineEdit04" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1227.0
+margin_top = 478.0
+margin_right = 2527.0
+margin_bottom = 581.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="ClothingWornCheckBox04" type="CheckBox" parent="charactersheet_panel/clothing"]
+margin_left = 1409.0
+margin_top = 483.0
+margin_right = 1433.0
+margin_bottom = 507.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 5 )
+
+[node name="ClothingNameLineEdit05" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1140.0
+margin_top = 496.0
+margin_right = 1820.0
+margin_bottom = 599.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 17
+caret_blink = true
+
+[node name="ClothingNotesLineEdit05" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1227.0
+margin_top = 496.0
+margin_right = 2527.0
+margin_bottom = 599.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="ClothingWornCheckBox05" type="CheckBox" parent="charactersheet_panel/clothing"]
+margin_left = 1409.0
+margin_top = 501.0
+margin_right = 1433.0
+margin_bottom = 525.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 5 )
+
+[node name="ClothingNameLineEdit06" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1140.0
+margin_top = 514.0
+margin_right = 1820.0
+margin_bottom = 617.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 17
+caret_blink = true
+
+[node name="ClothingNotesLineEdit06" type="LineEdit" parent="charactersheet_panel/clothing"]
+margin_left = 1227.0
+margin_top = 514.0
+margin_right = 2527.0
+margin_bottom = 617.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+caret_blink = true
+
+[node name="ClothingWornCheckBox06" type="CheckBox" parent="charactersheet_panel/clothing"]
+margin_left = 1409.0
+margin_top = 519.0
+margin_right = 1433.0
+margin_bottom = 543.0
+rect_pivot_offset = Vector2( 12, 12 )
+custom_styles/focus = SubResource( 5 )
+
+[node name="equipment_in_pack" type="Node" parent="charactersheet_panel"]
+
+[node name="ItemInPackLineEdit01" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 578.0
+margin_right = 2467.0
+margin_bottom = 681.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 43
+caret_blink = true
+
+[node name="ItemInPackLineEdit02" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 596.0
+margin_right = 2467.0
+margin_bottom = 699.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit03" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 614.0
+margin_right = 2467.0
+margin_bottom = 717.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit04" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 632.0
+margin_right = 2467.0
+margin_bottom = 735.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit05" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 651.0
+margin_right = 2467.0
+margin_bottom = 754.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit06" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 669.0
+margin_right = 2467.0
+margin_bottom = 772.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit07" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 687.0
+margin_right = 2467.0
+margin_bottom = 790.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit08" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 706.0
+margin_right = 2467.0
+margin_bottom = 809.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit09" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 724.0
+margin_right = 2467.0
+margin_bottom = 827.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit10" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 807.0
+margin_top = 742.0
+margin_right = 2467.0
+margin_bottom = 845.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit11" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 578.0
+margin_right = 2686.0
+margin_bottom = 681.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit12" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 596.0
+margin_right = 2686.0
+margin_bottom = 699.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit13" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 614.0
+margin_right = 2686.0
+margin_bottom = 717.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit14" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 632.0
+margin_right = 2686.0
+margin_bottom = 735.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit15" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 651.0
+margin_right = 2686.0
+margin_bottom = 754.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit16" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 669.0
+margin_right = 2686.0
+margin_bottom = 772.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit17" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 687.0
+margin_right = 2686.0
+margin_bottom = 790.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit18" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 706.0
+margin_right = 2686.0
+margin_bottom = 809.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit19" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 724.0
+margin_right = 2686.0
+margin_bottom = 827.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInPackLineEdit20" type="LineEdit" parent="charactersheet_panel/equipment_in_pack"]
+margin_left = 1026.0
+margin_top = 742.0
+margin_right = 2686.0
+margin_bottom = 845.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="cash" type="Node" parent="charactersheet_panel"]
+
+[node name="CashCreditsLineEdit" type="LineEdit" parent="charactersheet_panel/cash"]
+margin_left = 1286.0
+margin_top = 593.0
+margin_right = 2006.0
+margin_bottom = 733.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 15
+caret_blink = true
+
+[node name="CashMicroCreditsLineEdit" type="LineEdit" parent="charactersheet_panel/cash"]
+margin_left = 1286.0
+margin_top = 737.0
+margin_right = 2006.0
+margin_bottom = 877.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 15
+caret_blink = true
+
+[node name="CashUnitsLineEdit" type="LineEdit" parent="charactersheet_panel/cash"]
+margin_left = 1286.0
+margin_top = 807.0
+margin_right = 2006.0
+margin_bottom = 947.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 15
+caret_blink = true
+
+[node name="equipment_in_ship" type="Node" parent="charactersheet_panel"]
+
+[node name="ItemInShipLineEdit01" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 798.0
+margin_right = 2467.0
+margin_bottom = 901.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 43
+caret_blink = true
+
+[node name="ItemInShipLineEdit02" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 816.0
+margin_right = 2467.0
+margin_bottom = 919.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit03" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 834.0
+margin_right = 2467.0
+margin_bottom = 937.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit04" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 852.0
+margin_right = 2467.0
+margin_bottom = 955.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit05" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 871.0
+margin_right = 2467.0
+margin_bottom = 974.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit06" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 889.0
+margin_right = 2467.0
+margin_bottom = 992.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit07" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 907.0
+margin_right = 2467.0
+margin_bottom = 1010.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit08" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 926.0
+margin_right = 2467.0
+margin_bottom = 1029.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit09" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 944.0
+margin_right = 2467.0
+margin_bottom = 1047.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit10" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 807.0
+margin_top = 962.0
+margin_right = 2467.0
+margin_bottom = 1065.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit11" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 798.0
+margin_right = 2686.0
+margin_bottom = 901.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit12" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 816.0
+margin_right = 2686.0
+margin_bottom = 919.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit13" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 834.0
+margin_right = 2686.0
+margin_bottom = 937.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit14" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 852.0
+margin_right = 2686.0
+margin_bottom = 955.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit15" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 871.0
+margin_right = 2686.0
+margin_bottom = 974.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit16" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 889.0
+margin_right = 2686.0
+margin_bottom = 992.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit17" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 907.0
+margin_right = 2686.0
+margin_bottom = 1010.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit18" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 926.0
+margin_right = 2686.0
+margin_bottom = 1029.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit19" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 944.0
+margin_right = 2686.0
+margin_bottom = 1047.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="ItemInShipLineEdit20" type="LineEdit" parent="charactersheet_panel/equipment_in_ship"]
+margin_left = 1026.0
+margin_top = 962.0
+margin_right = 2686.0
+margin_bottom = 1065.0
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+max_length = 44
+caret_blink = true
+
+[node name="SkillButtonCheckBoxes" type="Button" parent="charactersheet_panel"]
+margin_left = 347.6
+margin_top = 721.6
+margin_right = 952.6
+margin_bottom = 824.6
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "--> ADVANCE SKILLS <--"
+
+[node name="RollOutcomeLabel" type="Label" parent="charactersheet_panel"]
+margin_left = 611.0
+margin_top = 937.0
+margin_right = 779.0
+margin_bottom = 1040.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="RollExplanationLabel" type="Label" parent="charactersheet_panel"]
+margin_left = 491.0
+margin_top = 1008.0
+margin_right = 1491.0
+margin_bottom = 1111.0
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 12, 12 )
+theme = ExtResource( 2 )
+text = "0"
+align = 2
+valign = 1
+
+[connection signal="timeout" from="auto_save" to="." method="_on_auto_save_timeout"]
+[connection signal="timeout" from="auto_bonuses" to="." method="_on_auto_bonuses_timeout"]
+[connection signal="pressed" from="charactersheet_panel/SkillButtonCheckBoxes" to="." method="_on_SkillButtonCheckBoxes_pressed"]
